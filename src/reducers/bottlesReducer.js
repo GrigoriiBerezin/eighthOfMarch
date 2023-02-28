@@ -30,18 +30,17 @@ const slice = createSlice({
     pour(state, action) {
       const fromBottle = state[action.payload.from];
       const toBottle = state[action.payload.to];
-      const totalLevel = fromBottle.level + toBottle.level;
-      const overflow = Math.max(0, totalLevel - toBottle.capacity);
+      const available = toBottle.capacity - toBottle.level;
+      const difference = Math.min(fromBottle.level, available);
 
       return {
-        ...state,
         [action.payload.from]: {
           ...fromBottle,
-          level: Math.max(0, fromBottle.level - fromBottle.capacity + overflow),
+          level: fromBottle.level - difference,
         },
         [action.payload.to]: {
           ...toBottle,
-          level: Math.min(toBottle.capacity, totalLevel),
+          level: toBottle.level + difference,
         },
       };
     },

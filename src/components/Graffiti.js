@@ -32,7 +32,7 @@ const Graffiti = () => {
           <Form onSubmit={handleSubmit}>
             <InputGroup>
               <Button variant="outline-primary" id="button-addon" type="submit">
-                Submit
+                Проверить
               </Button>
               <Form.Control
                 aria-label="Введи ответ тут"

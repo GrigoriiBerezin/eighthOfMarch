@@ -3,19 +3,25 @@ import {connect, useDispatch, useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import {fill, pour, reset} from '../reducers/bottlesReducer';
 import {Button, ButtonGroup, Col, Container, Row} from 'react-bootstrap';
+import {useState} from 'react';
+import Banner from './Banner';
 
 const Bottles = ({smallBottle, bigBottle}) => {
+  const [show, setShow] = useState(false);
+
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bottles);
 
-  if (state.bigBottle.level === 4) {
-    window.alert('Твоя подсказка: 24');
-    dispatch(reset('bigBottle'));
-  }
+  const handleClick = () => {
+    if (state.bigBottle.level === 4) {
+      setShow(true);
+    }
+  };
 
   /* eslint-disable react/react-in-jsx-scope */
   return (
     <>
+      <Banner show={show} setShow={setShow} text="Твоя подсказка: 24"/>
       <Row>
         <Container className="p-3">
           <p>
@@ -44,16 +50,21 @@ const Bottles = ({smallBottle, bigBottle}) => {
         <Col sm={12} md={4} style={{textAlign: 'center'}}>
           <Container className="p-3">
             <ButtonGroup>
-              <Button onClick={() => dispatch(pour({
-                from: 'bigBottle',
-                to: 'smallBottle',
-              }))}>
+              <Button
+                variant="outline-primary"
+                onClick={() => dispatch(pour({
+                  from: 'bigBottle',
+                  to: 'smallBottle',
+                }))}>
             ← Pour
               </Button>
-              <Button onClick={() => dispatch(pour({
-                from: 'smallBottle',
-                to: 'bigBottle',
-              }))}>
+              <Button onClick={handleClick}>Проверить</Button>
+              <Button
+                variant="outline-primary"
+                onClick={() => dispatch(pour({
+                  from: 'smallBottle',
+                  to: 'bigBottle',
+                }))}>
             Pour →
               </Button>
             </ButtonGroup>

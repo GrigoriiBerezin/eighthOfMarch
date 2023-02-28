@@ -2,7 +2,7 @@ import Bottle from './Bottle';
 import {connect, useDispatch, useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import {fill, pour, reset} from '../reducers/bottlesReducer';
-import {Button, Col, Row} from 'react-bootstrap';
+import {Button, ButtonGroup, Col, Container, Row} from 'react-bootstrap';
 
 const Bottles = ({smallBottle, bigBottle}) => {
   const dispatch = useDispatch();
@@ -10,38 +10,72 @@ const Bottles = ({smallBottle, bigBottle}) => {
 
   if (state.bigBottle.level === 4) {
     window.alert('Твоя подсказка: 24');
+    dispatch(reset('bigBottle'));
   }
 
   /* eslint-disable react/react-in-jsx-scope */
   return (
-    <Row>
-      <Col md={4}>
-        <Bottle level={smallBottle.level} capacity={smallBottle.capacity}/>
-        <Button onClick={() => dispatch(fill('smallBottle'))}>Fill</Button>
-        <Button onClick={() => dispatch(reset('smallBottle'))}>Reset</Button>
-      </Col>
-      <Col md={4} className="d-flex">
-        <div className="justify-content-center">
-          <Button onClick={() => dispatch(pour({
-            from: 'bigBottle',
-            to: 'smallBottle',
-          }))}>
+    <>
+      <Row>
+        <Container className="p-3">
+          <p>
+            Есть 2 емкости с объёмом 3 и 5 литра
+            соответственно и бесконечное количество воды
+          </p>
+          <p>Отмерь ровно 4 литра воды</p>
+        </Container>
+      </Row>
+      <Row>
+        <Col sm={12} md={4} style={{textAlign: 'center'}}>
+          <Bottle level={smallBottle.level} capacity={smallBottle.capacity}/>
+          <Container className="p-3">
+            <ButtonGroup>
+              <Button variant='outline-primary'
+                onClick={() => dispatch(fill('smallBottle'))}>
+          Fill
+              </Button>
+              <Button variant='outline-danger'
+                onClick={() => dispatch(reset('smallBottle'))}>
+          Reset
+              </Button>
+            </ButtonGroup>
+          </Container>
+        </Col>
+        <Col sm={12} md={4} style={{textAlign: 'center'}}>
+          <Container className="p-3">
+            <ButtonGroup>
+              <Button onClick={() => dispatch(pour({
+                from: 'bigBottle',
+                to: 'smallBottle',
+              }))}>
             ← Pour
-          </Button>
-          <Button onClick={() => dispatch(pour({
-            from: 'smallBottle',
-            to: 'bigBottle',
-          }))}>
+              </Button>
+              <Button onClick={() => dispatch(pour({
+                from: 'smallBottle',
+                to: 'bigBottle',
+              }))}>
             Pour →
-          </Button>
-        </div>
-      </Col>
-      <Col md={4}>
-        <Bottle level={bigBottle.level} capacity={bigBottle.capacity}/>
-        <Button onClick={() => dispatch(fill('bigBottle'))}>Fill</Button>
-        <Button onClick={() => dispatch(reset('bigBottle'))}>Reset</Button>
-      </Col>
-    </Row>
+              </Button>
+            </ButtonGroup>
+          </Container>
+        </Col>
+        <Col sm={12} md={4} style={{textAlign: 'center'}}>
+          <Bottle level={bigBottle.level} capacity={bigBottle.capacity}/>
+          <Container className="p-3">
+            <ButtonGroup>
+              <Button variant='outline-primary'
+                onClick={() => dispatch(fill('bigBottle'))}>
+            Fill
+              </Button>
+              <Button variant='outline-danger'
+                onClick={() => dispatch(reset('bigBottle'))}>
+            Reset
+              </Button>
+            </ButtonGroup>
+          </Container>
+        </Col>
+      </Row>
+    </>
   );
 };
 

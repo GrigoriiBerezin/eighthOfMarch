@@ -4,6 +4,8 @@ import Graffiti from './components/Graffiti';
 import NavigateBar from './components/NavigateBar';
 import {useState} from 'react';
 import Togglable from './components/Togglable';
+import Home from './components/Home';
+import ColorsTask from './components/ColorsTask';
 
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-unused-vars */
@@ -25,7 +27,7 @@ const App = () => {
   return (
     <Container className="p-3" fluid>
       <NavigateBar states={states}/>
-      <Togglable isVisible={home}><Graffiti/></Togglable>
+      <Togglable isVisible={home}><Home/></Togglable>
       <Togglable isVisible={s1}><Graffiti/></Togglable>
       <Togglable isVisible={s2}><Bottles/></Togglable>
       <Togglable isVisible={s3}><Bottles/></Togglable>

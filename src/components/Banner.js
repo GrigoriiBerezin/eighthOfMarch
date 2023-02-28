@@ -21,7 +21,7 @@ const Banner = ({show, setShow, text}) => {
 Banner.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
 };
 
 export default Banner;

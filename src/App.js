@@ -25,12 +25,12 @@ const App = () => {
   ];
 
   return (
-    <Container className="p-3" fluid>
+    <Container fluid>
       <NavigateBar states={states}/>
       <Togglable isVisible={home}><Home/></Togglable>
       <Togglable isVisible={s1}><Graffiti/></Togglable>
       <Togglable isVisible={s2}><Bottles/></Togglable>
-      <Togglable isVisible={s3}><Bottles/></Togglable>
+      <Togglable isVisible={s3}><ColorsTask/></Togglable>
       <Togglable isVisible={s4}><Bottles/></Togglable>
     </Container>
   );

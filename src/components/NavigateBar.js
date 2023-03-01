@@ -12,7 +12,7 @@ const NavigateBar = () => {
   };
 
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar expand="sm" bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>Сюрпризная</Navbar.Brand>
         <Nav className="me-auto">

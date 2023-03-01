@@ -6,6 +6,7 @@ import Togglable from './components/Togglable';
 import Home from './components/Home';
 import ColorsTask from './components/ColorsTask';
 import {useSelector} from 'react-redux';
+import Barcode from './components/Barcode';
 
 /* eslint-disable react/react-in-jsx-scope */
 const App = () => {
@@ -19,7 +20,7 @@ const App = () => {
       <Togglable isVisible={s1.isVisible}><Graffiti/></Togglable>
       <Togglable isVisible={s2.isVisible}><Bottles/></Togglable>
       <Togglable isVisible={s3.isVisible}><ColorsTask/></Togglable>
-      <Togglable isVisible={s4.isVisible}><Bottles/></Togglable>
+      <Togglable isVisible={s4.isVisible}><Barcode/></Togglable>
     </Container>
   );
 };

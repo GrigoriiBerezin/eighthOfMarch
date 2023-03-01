@@ -1,13 +1,14 @@
 import {Container, Nav, Navbar} from 'react-bootstrap';
-import PropTypes from 'prop-types';
+import {useDispatch, useSelector} from 'react-redux';
+import {toggleVisibility} from '../reducers/pageVisibilityReducer';
 
 /* eslint-disable react/react-in-jsx-scope */
-const NavigateBar = ({states}) => {
-  const toggle = (index) => {
-    states.forEach(({set}) => {
-      set(false);
-    });
-    states[index].set(true);
+const NavigateBar = () => {
+  const dispatch = useDispatch();
+  const states = useSelector((state) => state.visibilityStates);
+
+  const toggle = (id) => {
+    dispatch(toggleVisibility(id));
   };
 
   return (
@@ -24,10 +25,6 @@ const NavigateBar = ({states}) => {
       </Container>
     </Navbar>
   );
-};
-
-NavigateBar.propTypes = {
-  states: PropTypes.array.isRequired,
 };
 
 export default NavigateBar;

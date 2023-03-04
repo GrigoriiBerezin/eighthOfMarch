@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/eighthOfMarch/static/css/main.c2cab247.css",
+    "main.js": "/eighthOfMarch/static/js/main.8fe2f307.js",
+    "index.html": "/eighthOfMarch/index.html",
+    "main.c2cab247.css.map": "/eighthOfMarch/static/css/main.c2cab247.css.map",
+    "main.8fe2f307.js.map": "/eighthOfMarch/static/js/main.8fe2f307.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2cab247.css",
+    "static/js/main.8fe2f307.js"
+  ]
+}

@@ -23,7 +23,8 @@ const Home = () => {
       <Banner
         show={show}
         setShow={setShow}
-        text='Молодец, ты разгадала все задания и получаешь свой подарок :)'
+        text='Молодец, ты разгадала все задания и получаешь свой подарок :)
+        0MY4S9153XXVM FNAC'
       />
       <Row>
         <Container className="p-3">

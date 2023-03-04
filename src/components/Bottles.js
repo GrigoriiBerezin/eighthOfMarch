@@ -5,18 +5,13 @@ import {fill, pour, reset} from '../reducers/bottlesReducer';
 import {Button, ButtonGroup, Col, Container, Row} from 'react-bootstrap';
 import {useState} from 'react';
 import Banner from './Banner';
+import ButtonTrigger from './ButtonTrigger';
 
 const Bottles = ({smallBottle, bigBottle}) => {
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bottles);
-
-  const handleClick = () => {
-    if (state.bigBottle.level === 4) {
-      setShow(true);
-    }
-  };
 
   /* eslint-disable react/react-in-jsx-scope */
   return (
@@ -58,7 +53,11 @@ const Bottles = ({smallBottle, bigBottle}) => {
                 }))}>
             ← Pour
               </Button>
-              <Button onClick={handleClick}>Проверить</Button>
+              <ButtonTrigger
+                label="Проверить"
+                handleSuccess={() => setShow(true)}
+                onClickCondition={() => state.bigBottle.level === 4}
+              />
               <Button
                 variant="outline-primary"
                 onClick={() => dispatch(pour({

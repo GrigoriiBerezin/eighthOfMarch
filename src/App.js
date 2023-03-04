@@ -14,14 +14,16 @@ const App = () => {
   const [home, s1, s2, s3, s4] = states;
 
   return (
-    <Container fluid>
+    <>
       <NavigateBar/>
-      <Togglable isVisible={home.isVisible}><Home/></Togglable>
-      <Togglable isVisible={s1.isVisible}><Graffiti/></Togglable>
-      <Togglable isVisible={s2.isVisible}><Bottles/></Togglable>
-      <Togglable isVisible={s3.isVisible}><ColorsTask/></Togglable>
-      <Togglable isVisible={s4.isVisible}><Barcode/></Togglable>
-    </Container>
+      <Container fluid>
+        <Togglable isVisible={home.isVisible}><Home/></Togglable>
+        <Togglable isVisible={s1.isVisible}><Graffiti/></Togglable>
+        <Togglable isVisible={s2.isVisible}><Bottles/></Togglable>
+        <Togglable isVisible={s3.isVisible}><ColorsTask/></Togglable>
+        <Togglable isVisible={s4.isVisible}><Barcode/></Togglable>
+      </Container>
+    </>
   );
 };
 

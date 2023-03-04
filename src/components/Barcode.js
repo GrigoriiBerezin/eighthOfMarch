@@ -1,18 +1,11 @@
-import {Button, Container, Form, InputGroup, Row} from 'react-bootstrap';
+import {Container, Form, InputGroup, Row} from 'react-bootstrap';
 import Banner from './Banner';
 import {useState} from 'react';
+import ButtonTrigger from './ButtonTrigger';
 
 const Barcode = () => {
   const [show, setShow] = useState(false);
   const [password, setPassword] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (password === '8437007877823') {
-      setShow(true);
-    }
-  };
 
   /* eslint-disable react/react-in-jsx-scope */
   return (
@@ -25,9 +18,13 @@ const Barcode = () => {
             <b className="text-info"> Patata Lavada Malla 5kg</b>
           </p>
           <p>Его баркод является шифром задания</p>
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <InputGroup>
-              <Button type="submit">Проверить</Button>
+              <ButtonTrigger
+                onClickCondition={() => password === '8437007877823'}
+                handleSuccess={() => setShow(true)}
+                label="Проверить"
+              />
               <Form.Control value={password}
                 onChange={({target}) => setPassword(target.value)}
               />

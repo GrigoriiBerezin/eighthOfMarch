@@ -1,19 +1,12 @@
-import {Button, Container, Form, InputGroup, Row} from 'react-bootstrap';
+import {Container, Form, InputGroup, Row} from 'react-bootstrap';
 import {useState} from 'react';
 import Banner from './Banner';
+import ButtonTrigger from './ButtonTrigger';
 
 /* eslint-disable react/react-in-jsx-scope */
 const Graffiti = () => {
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (password.toLowerCase() === 'rako') {
-      setShow(true);
-    }
-  };
 
   return (
     <>
@@ -29,11 +22,13 @@ const Graffiti = () => {
       </Row>
       <Row>
         <Container className="p-3">
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <InputGroup>
-              <Button variant="outline-primary" id="button-addon" type="submit">
-                Проверить
-              </Button>
+              <ButtonTrigger
+                onClickCondition={() => password.toLowerCase() === 'rako'}
+                handleSuccess={() => setShow(true)}
+                label="Проверить"
+              />
               <Form.Control
                 aria-label="Введи ответ тут"
                 value={password}

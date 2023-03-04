@@ -15,13 +15,16 @@ const NavigateBar = () => {
     <Navbar expand="sm" bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>Сюрпризная</Navbar.Brand>
-        <Nav className="me-auto">
-          {states.map((state) =>
-            <Nav.Link key={state.id} onClick={() => toggle(state.id)}>
-              {state.title}
-            </Nav.Link>)
-          }
-        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {states.map((state) =>
+              <Nav.Link key={state.id} onClick={() => toggle(state.id)}>
+                {state.title}
+              </Nav.Link>)
+            }
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

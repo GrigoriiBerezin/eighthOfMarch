@@ -9,7 +9,7 @@ const Barcode = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (password === '123') {
+    if (password === '8437007877823') {
       setShow(true);
     }
   };
@@ -22,7 +22,7 @@ const Barcode = () => {
         <Container className="p-3">
           <p>В задании придется немного походить</p>
           <p>В дешевом карефуре найди товар
-            <b className="text-info"> Patata</b>
+            <b className="text-info"> Patata Lavada Malla 5kg</b>
           </p>
           <p>Его баркод является шифром задания</p>
           <Form onSubmit={handleSubmit}>

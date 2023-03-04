@@ -55,7 +55,7 @@ const ColorsTask = () => {
                 value={blue}
                 onChange={({target}) => setBlue(Number(target.value))}
               />
-              <Form.Label style={style}/>
+              <Button style={style}/>
             </InputGroup>
           </Form>
         </Container>

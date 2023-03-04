@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/eighthOfMarch/static/css/main.c2cab247.css",
-    "main.js": "/eighthOfMarch/static/js/main.8fe2f307.js",
+    "main.js": "/eighthOfMarch/static/js/main.8360890a.js",
     "index.html": "/eighthOfMarch/index.html",
     "main.c2cab247.css.map": "/eighthOfMarch/static/css/main.c2cab247.css.map",
-    "main.8fe2f307.js.map": "/eighthOfMarch/static/js/main.8fe2f307.js.map"
+    "main.8360890a.js.map": "/eighthOfMarch/static/js/main.8360890a.js.map"
   },
   "entrypoints": [
     "static/css/main.c2cab247.css",
-    "static/js/main.8fe2f307.js"
+    "static/js/main.8360890a.js"
   ]
 }

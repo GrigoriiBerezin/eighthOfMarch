@@ -23,6 +23,18 @@ const ColorsTask = () => {
       blue <= 10;
   };
 
+  const handleChangeColor = (setter, value) => {
+    if (!isNaN(+value)) {
+      if (+value > 255) {
+        setter(255);
+      } else if (+value < 0) {
+        setter(0);
+      } else {
+        setter(+value);
+      }
+    }
+  };
+
   /* eslint-disable react/react-in-jsx-scope */
   return (
     <>
@@ -38,21 +50,27 @@ const ColorsTask = () => {
                 <InputGroup.Text>Red</InputGroup.Text>
                 <Form.Control
                   value={red}
-                  onChange={({target}) => setRed(Number(target.value))}
+                  onChange={
+                    ({target}) => handleChangeColor(setRed, target.value)
+                  }
                 />
               </InputGroup>
               <InputGroup>
                 <InputGroup.Text>Green</InputGroup.Text>
                 <Form.Control
                   value={green}
-                  onChange={({target}) => setGreen(Number(target.value))}
+                  onChange={
+                    ({target}) => handleChangeColor(setGreen, target.value)
+                  }
                 />
               </InputGroup>
               <InputGroup>
                 <InputGroup.Text>Blue</InputGroup.Text>
                 <Form.Control
                   value={blue}
-                  onChange={({target}) => setBlue(Number(target.value))}
+                  onChange={
+                    ({target}) => handleChangeColor(setBlue, target.value)
+                  }
                 />
               </InputGroup>
               <InputGroup className="justify-content-center p-3">
